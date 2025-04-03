@@ -27,6 +27,14 @@
 *.lib
 
 # Executables
+bin
+bin/
+bin/*
 *.exe
 *.out
 *.app
+
+# LIBRARIES
+include/SDL3
+include/SDL3/
+include/SDL3/*
