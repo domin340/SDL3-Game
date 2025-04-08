@@ -1,13 +1,25 @@
-#include <SDL3/SDL.h>
-#include <stdio.h>
+#include "game.hpp"
 
 int main()
 {
-    // initialize sdl
-    if (!SDL_Init(SDL_INIT_VIDEO))
+    Game *game = new Game("Example Game", 640, 480);
+    game->Init();
+
+    // loop
+    float elapsed = 0;
+    while (true)
     {
-        printf("Could not initialize sdl3: %s\n", SDL_GetError());
+        game->Refresh();
+        float dt = game->GetDeltaTime();
+        elapsed += dt;
+        SDL_Log("%.12f", dt);
+        if (elapsed >= 3)
+        {
+            SDL_Log("%0.4f", elapsed);
+            break;
+        }
     }
 
+    game->Destroy();
     return 0;
 }
