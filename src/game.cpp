@@ -1,4 +1,4 @@
-#include "game.hpp"
+#include <Engine/game.hpp>
 
 // INIT AND DEINIT
 // ------------------------------------------------------------
@@ -38,11 +38,10 @@ void Game::Init()
 // SILENT UPDATE + DELTA HANDLERS
 // ------------------------------------------------------------
 
-/// @brief This methods refreshes most of the necessary variables required to run the game
+/// @brief This method refreshes most of the necessary variables required to run the game
 void Game::Refresh()
 {
-    LastUpdateTime = TotalElapsedTime;
-    TotalElapsedTime = SDL_GetTicks();
+    Time.Refresh();
 }
 
 // ------------------------------------------------------------

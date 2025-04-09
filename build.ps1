@@ -1,6 +1,7 @@
 g++ .\src\main.cpp `
-    .\src\modules\vector2.cpp `
+    .\src\vector2.cpp `
     .\src\game.cpp `
+    .\src\time.cpp `
     -o .\bin\game.exe `
     -I .\include `
     -L .\lib `

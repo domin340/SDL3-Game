@@ -1,4 +1,4 @@
-#include "game.hpp"
+#include <Engine/game.hpp>
 
 int main()
 {
@@ -6,16 +6,15 @@ int main()
     game->Init();
 
     // loop
-    float elapsed = 0;
+    Timer &t = game->Time.AddTimer(3000);
+    t.Play();
+
     while (true)
     {
         game->Refresh();
-        float dt = game->GetDeltaTime();
-        elapsed += dt;
-        SDL_Log("%.12f", dt);
-        if (elapsed >= 3)
+        if (t.IsDone)
         {
-            SDL_Log("%0.4f", elapsed);
+            SDL_Log("%0.4f\n", t.Elapsed);
             break;
         }
     }

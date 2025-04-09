@@ -7,7 +7,8 @@ using std::string;
 #include <SDL3/SDL.h>
 
 // instances
-#include "modules/vector2.hpp"
+#include "vector2.hpp"
+#include "time.hpp"
 
 // MAIN CLASS
 // ------------------------------------------------------------
@@ -23,19 +24,7 @@ public:
     SDL_Window *Window;
     SDL_Renderer *Renderer;
 
-    // SILENT UPDATE
-    void Refresh();
-
-    // DELTA HANDLERS
-    // TODO: IMPLEMENT CLOCK
-    // ------------------------------------------------------------
-
-    Uint64 TotalElapsedTime;
-    Uint64 LastUpdateTime;
-
-    inline float GetDeltaTime() { return (float)(TotalElapsedTime - LastUpdateTime) / 1000.0f; }
-
-    // ------------------------------------------------------------
+    GameTime Time;
 
     Game(string title, int width, int height)
     {
@@ -46,15 +35,15 @@ public:
         Window = nullptr;
         Renderer = nullptr;
 
-        TotalElapsedTime = 0;
-        LastUpdateTime = 0;
+        Time = GameTime();
     }
 
-    // INIT AND DEINIT
+    // BASIC METHODS
     // ------------------------------------------------------------
 
     void Destroy();
     void Init();
+    void Refresh();
 
     // ------------------------------------------------------------
 
@@ -63,8 +52,8 @@ public:
 
     inline string GetTitle() { return _Title; }
     inline Vector2 GetSize() { return Vector2(_Width, _Height); }
-    constexpr int GetWidth() const { return _Width; }
-    constexpr int GetHeight() const { return _Height; }
+    inline int GetWidth() { return _Width; }
+    inline int GetHeight() { return _Height; }
 
     // ------------------------------------------------------------
 
