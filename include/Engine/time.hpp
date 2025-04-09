@@ -6,6 +6,7 @@
 #include <string>
 using std::string;
 
+/// TODO: Add repeat property (-1 = inf)
 struct Timer
 {
     /// @brief Represents the id of a timer
