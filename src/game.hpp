@@ -63,8 +63,8 @@ public:
 
     inline string GetTitle() { return _Title; }
     inline Vector2 GetSize() { return Vector2(_Width, _Height); }
-    constexpr int GetWidth() const { return _Width; }
-    constexpr int GetHeight() const { return _Height; }
+    inline int GetWidth() { return _Width; }
+    inline int GetHeight() { return _Height; }
 
     // ------------------------------------------------------------
 
