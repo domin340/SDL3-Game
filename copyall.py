@@ -1,6 +1,7 @@
 import os
 import shutil
 
+# TODO: FIX THIS
 
 def fetch_files_r(path: str):
     files_found = []
